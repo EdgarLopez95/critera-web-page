@@ -1,0 +1,412 @@
+/* ================================================
+   CRITERIA — Custom Styles
+   Complementa Tailwind con transiciones y efectos
+   ================================================ */
+
+/* ── Fonts & Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+
+/* ── Scroll Progress Bar ── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4097a3, #135677);
+  z-index: 999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ── NAVBAR ── */
+#header {
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+#header.scrolled {
+  background: rgba(8, 47, 86, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+}
+#header.scrolled .nav-link { color: rgba(255,255,255,0.8); }
+#header.scrolled .nav-link:hover { color: #4097a3; }
+#header .nav-link { color: rgba(255,255,255,0.85); }
+#header .hamburger-line { background: #ffffff; }
+#header.scrolled .hamburger-line { background: #ffffff; }
+
+/* Active hamburger → X */
+#menu-toggle.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle.open .hamburger-line:nth-child(2) {
+  opacity: 0; transform: scaleX(0);
+}
+#menu-toggle.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav */
+#mobile-menu { background: rgba(8, 47, 86, 0.98); }
+#mobile-menu .mobile-nav-link { color: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(255,255,255,0.1); }
+#mobile-menu .mobile-nav-link:hover { color: #4097a3; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: linear-gradient(135deg, #4097a3, #135677);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #135677, #082f56);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-outline {
+  border: 2px solid #4097a3;
+  color: #4097a3;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: #4097a3;
+  color: white;
+}
+
+/* ── HERO ── */
+.hero-bg {
+  background: linear-gradient(135deg, #082f56 0%, #0d3d6e 40%, #135677 75%, #1a6b7a 100%);
+}
+.hero-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.hero-gradient-bottom {
+  background: linear-gradient(to bottom, transparent 60%, rgba(8,47,86,0.4) 100%);
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+}
+
+/* ── SECTION EYEBROW ── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4097a3;
+  margin-bottom: 1rem;
+}
+.eyebrow::before, .eyebrow::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #4097a3;
+  border-radius: 1px;
+}
+
+/* ── CARDS ── */
+.service-card {
+  transition: transform 0.35s cubic-bezier(.25,.8,.25,1), box-shadow 0.35s ease, border-color 0.35s ease;
+  border: 1px solid #e5e7eb;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(8,47,86,0.15);
+  border-color: #4097a3;
+}
+.service-card .card-icon-wrap {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.service-card:hover .card-icon-wrap {
+  background: #4097a3;
+  transform: scale(1.1);
+}
+.service-card:hover .card-icon-wrap svg { color: white !important; fill: white !important; }
+
+.benefit-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(8,47,86,0.12);
+}
+
+/* ── PROCESS STEPS ── */
+.process-line {
+  position: absolute;
+  top: 32px; left: calc(50% + 32px);
+  width: calc(50% - 32px);
+  height: 2px;
+  background: linear-gradient(90deg, #4097a3, transparent);
+}
+.step-number {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; font-weight: 900;
+  background: linear-gradient(135deg, #4097a3, #135677);
+  color: white;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(64,151,163,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step-wrap:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(64,151,163,0.5);
+}
+
+/* ── TEAM / QUIÉNES SOMOS ── */
+.team-profile-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.team-profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 72px rgba(0, 0, 0, 0.46), 0 0 0 1px rgba(64,151,163,0.12);
+}
+.team-monogram {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.88);
+  background: linear-gradient(135deg, #0d3d6e 0%, #1a6b7a 100%);
+  box-shadow: 0 0 0 3px rgba(64,151,163,0.35), 0 0 0 10px rgba(64,151,163,0.08);
+}
+.team-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #4097a3;
+  margin-bottom: 0.5rem;
+}
+.team-name {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.05;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.35rem;
+}
+.team-credentials {
+  color: rgba(255,255,255,0.68);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.team-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(64,151,163,0.35), rgba(64,151,163,0.08), transparent);
+}
+.team-body {
+  color: rgba(255,255,255,0.86);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.team-quote {
+  color: rgba(214,245,247,0.72);
+  font-size: 0.93rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+.team-specialties-panel {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(64,151,163,0.18);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+.team-specialties-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #4097a3;
+  margin-bottom: 1rem;
+}
+.team-specialties-list {
+  display: grid;
+  gap: 0.75rem;
+}
+.team-specialties-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(8,47,86,0.24);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.team-specialty-index {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #4097a3;
+  background: rgba(64,151,163,0.12);
+  border: 1px solid rgba(64,151,163,0.22);
+}
+
+/* ── FAQ ACCORDION ── */
+.faq-item { border-bottom: 1px solid #e5e7eb; }
+.faq-question {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 0; text-align: left; cursor: pointer;
+  transition: color 0.2s ease;
+}
+.faq-question:hover { color: #4097a3; }
+.faq-icon {
+  flex-shrink: 0; width: 24px; height: 24px;
+  border-radius: 50%; border: 2px solid #4097a3;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  color: #4097a3;
+}
+.faq-item.open .faq-icon {
+  background: #4097a3; color: white; transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(.4,0,.2,1), padding 0.3s ease;
+  padding-bottom: 0;
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+.faq-item.open .faq-answer {
+  max-height: 500px;
+  padding-bottom: 1.5rem;
+}
+
+/* ── SEGMENTATION CARDS ── */
+.seg-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.seg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: linear-gradient(135deg, #082f56 0%, #135677 60%, #0d4d5e 100%);
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: rgba(64,151,163,0.08);
+  top: -200px; right: -200px;
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(64,151,163,0.06);
+  bottom: -150px; left: -100px;
+}
+
+/* ── CONTACT ITEMS ── */
+.contact-item {
+  transition: transform 0.25s ease, background 0.25s ease;
+  border-radius: 12px; padding: 16px 20px;
+}
+.contact-item:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(6px);
+}
+
+/* ── FOOTER ── */
+footer { background: #041a30; }
+.footer-link { color: rgba(255,255,255,0.55); transition: color 0.2s ease; font-size: 0.875rem; }
+.footer-link:hover { color: #4097a3; }
+
+/* ── LOGO — filtro para SVG oscuro sobre header siempre oscuro ── */
+/* El header es siempre dark (transparente sobre hero navy, o sólido navy al scroll)   */
+/* Por eso el SVG con colores originales necesita este filtro para verse.             */
+/* Si tienes una versión blanca del logo, quita el filtro y descomenta la img normal. */
+#header .header-logo {
+  filter: brightness(0) invert(1);
+}
+.footer-logo {
+  filter: brightness(0) invert(1);
+}
+/* Cuando quieras mantener colores del logo, crea dos versiones:
+   header-logo-dark.svg (original) y header-logo-white.svg (todo blanco)
+   y cámbialos con JS según sección. Por ahora, invert funciona bien. */
+
+/* ── PROBLEMA — split dark layout ── */
+.problema-card {
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid rgba(64,151,163,0.6);
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.problema-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: #4097a3;
+}
+
+/* ── QUIÉNES SOMOS — stat highlight ── */
+.stat-highlight {
+  border: 1px solid rgba(64,151,163,0.35);
+  border-radius: 16px;
+  padding: 24px 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+}
+.stat-highlight .divider {
+  width: 1px; height: 48px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── GSAP invisible initial states ── */
+.gsap-hidden { opacity: 0; }
+
+/* ── ACTIVE NAV ── */
+.nav-link.active { color: #4097a3 !important; }
+
+/* ── CUSTOM SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #082f56; }
+::-webkit-scrollbar-thumb { background: #4097a3; border-radius: 3px; }
+
+/* ── SELECTION ── */
+::selection { background: #4097a3; color: white; }
