@@ -1,941 +1,205 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Estructuramos procesos de talento y acompañamos relaciones laborales. Acompañamiento experto para pymes que crecen. Consulta gratuita sin compromiso.">
-  <title>CRITERIA | Gestión de Talento y Relaciones Laborales para Pymes</title>
+  <meta name="description" content="CRITERIA Consultoría Empresarial — Gestión de talento y relaciones laborales para pymes. Próximamente.">
+  <title>CRITERIA | Consultoría Empresarial</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'c-navy':      '#082f56',
-            'c-blue':      '#30598c',
-            'c-teal-dark': '#135677',
-            'c-teal':      '#4097a3',
-          },
-          fontFamily: {
-            sans: ['Montserrat', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Google Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/logo/favicon.svg">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- GSAP Core + Plugins -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    :root {
+      --navy:    #082f56;
+      --blue:    #30598c;
+      --teal-dk: #135677;
+      --teal:    #4097a3;
+      --bg:      #f8f9fb;
+      --text:    #1e2a35;
+      --muted:   #6b7a8d;
+    }
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+    html, body {
+      height: 100%;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+    .logo-grid span {
+      border-radius: 2px;
+    }
+    .logo-text-wrap {
+      text-align: left;
+    }
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 7px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dk));
+      border-radius: 2px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ── Heading ── */
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Body text ── */
+    .message {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 400;
+      max-width: 400px;
+      margin: 0 auto 2.25rem;
+    }
+    .message strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── CTA Button ── */
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dk));
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .btn-wa:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+    .btn-wa svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer note ── */
+    .note {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: #aab4be;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 400px) {
+      .logo-name { font-size: 0.95rem; }
+    }
+  </style>
 </head>
 
-<body class="font-sans antialiased text-gray-900 bg-white">
+<body>
+  <div class="container">
 
-  <!-- Scroll Progress -->
-  <div id="progress-bar"></div>
-
-  <!-- ══════════════════════════════════════
-       HEADER
-  ══════════════════════════════════════ -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50">
-    <nav class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-
-        <!-- Logo -->
-        <a href="#" class="flex items-center shrink-0" id="hero-logo">
-          <!-- PARA REEMPLAZAR: descomenta la línea de abajo y borra el bloque logo-placeholder -->
-          <img src="assets/logo/logo.svg" alt="Criteria Consultoría Empresarial" class="h-10 sm:h-11 header-logo">
-
-        </a>
-
-        <!-- Desktop Nav -->
-        <div class="hidden lg:flex items-center gap-8">
-          <a href="#quienes-somos" class="nav-link text-[13px] font-600 tracking-wide">Quiénes Somos</a>
-          <a href="#servicios"     class="nav-link text-[13px] font-600 tracking-wide">Servicios</a>
-          <a href="#como-trabajamos" class="nav-link text-[13px] font-600 tracking-wide">Cómo Trabajamos</a>
-          <a href="#faqs"          class="nav-link text-[13px] font-600 tracking-wide">FAQs</a>
-          <a href="#contacto" class="btn-primary btn-magnetic px-6 py-2.5 rounded-lg text-[13px] font-bold tracking-wide text-white">
-            <span>Hablemos</span>
-          </a>
-        </div>
-
-        <!-- Hamburger -->
-        <button id="menu-toggle" class="lg:hidden flex flex-col justify-center gap-[5px] p-2 w-10 h-10" aria-label="Menú">
-          <span class="hamburger-line block h-[2px] w-6 rounded-full"></span>
-          <span class="hamburger-line block h-[2px] w-6 rounded-full"></span>
-          <span class="hamburger-line block h-[2px] w-6 rounded-full"></span>
-        </button>
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-grid">
+        <span style="background:#082f56"></span>
+        <span style="background:#30598c"></span>
+        <span style="background:#135677"></span>
+        <span style="background:#4097a3"></span>
       </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden">
-      <div class="max-w-7xl mx-auto px-6 pb-8 pt-4 flex flex-col gap-1">
-        <a href="#quienes-somos"   class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Quiénes Somos</a>
-        <a href="#servicios"       class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Servicios</a>
-        <a href="#como-trabajamos" class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Cómo Trabajamos</a>
-        <a href="#faqs"            class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">FAQs</a>
-        <a href="#contacto" class="btn-primary mt-3 px-6 py-3 rounded-lg text-sm font-bold tracking-wide text-white text-center">
-          <span>Hablemos</span>
-        </a>
+      <div class="logo-text-wrap">
+        <div class="logo-name">CRITERIA</div>
+        <div class="logo-sub">Consultoría Empresarial</div>
       </div>
     </div>
-  </header>
 
+    <!-- Divider -->
+    <div class="divider"></div>
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
-  <section id="hero" class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20">
-    <div class="hero-bg absolute inset-0"></div>
-    <div class="hero-pattern absolute inset-0"></div>
-    <div class="hero-gradient-bottom absolute inset-0"></div>
+    <!-- Heading -->
+    <h1>Estamos preparando<br>algo nuevo para ti</h1>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
-      <!-- Eyebrow -->
-      <div id="hero-tag" class="inline-flex items-center gap-3 mb-5 sm:mb-8">
-        <div class="h-px w-8 sm:w-12 bg-c-teal/60"></div>
-        <span class="text-c-teal text-[10px] sm:text-[11px] font-700 tracking-[0.3em] uppercase">Consultoría Empresarial</span>
-        <div class="h-px w-8 sm:w-12 bg-c-teal/60"></div>
-      </div>
+    <!-- Message -->
+    <p class="message">
+      Estamos construyendo nuestra nueva experiencia digital.<br>
+      Muy pronto podrás conocer más sobre nuestros servicios en
+      <strong>gestión de talento y relaciones laborales</strong>.
+    </p>
 
-      <!-- H1 -->
-      <h1 id="hero-h1" class="text-[2rem] sm:text-5xl lg:text-[3.5rem] font-black leading-[1.1] mb-4 sm:mb-6">
-        Gestión de talento y relaciones laborales<br>
-        <span style="color:#4097a3">que ordena tu empresa</span>
-      </h1>
-
-      <!-- Subtitle -->
-      <p id="hero-sub" class="text-base sm:text-xl text-white/80 font-medium leading-relaxed mb-3 sm:mb-4 max-w-2xl mx-auto">
-        Estructuramos tus procesos de talento y acompañamos situaciones sensibles para que tomes decisiones con seguridad y claridad.
-      </p>
-
-      <p id="hero-desc" class="text-sm text-white/55 font-medium tracking-wide mb-7 sm:mb-10">
-        Pensado para pymes que crecen más rápido que su estructura interna.
-      </p>
-
-      <!-- CTA -->
-      <div id="hero-cta" class="flex flex-row flex-wrap items-center justify-center gap-3 mb-3">
-        <a href="#contacto" class="btn-primary btn-magnetic px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl text-sm sm:text-base font-bold tracking-wide text-white shadow-lg shadow-c-teal/30">
-          <span>Agendar reunión</span>
-        </a>
-        <a href="#servicios" class="btn-outline px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl text-sm sm:text-base font-bold tracking-wide">
-          Ver servicios
-        </a>
-      </div>
-
-      <p id="hero-microcopy" class="text-xs text-white/60 font-medium tracking-wide">
-        Sin compromiso · 30 minutos · Sin costo
-      </p>
-    </div>
-
-    <!-- Scroll indicator — centrado con inset-x-0 para máxima fiabilidad -->
-    <div id="scroll-indicator" class="absolute bottom-6 sm:bottom-8 inset-x-0 scroll-indicator flex flex-col items-center gap-2">
-      <span class="text-white/50 text-[10px] tracking-[0.25em] uppercase font-semibold">Scroll</span>
-      <svg class="w-5 h-5 text-c-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+    <!-- CTA -->
+    <!-- TODO: reemplazar # por el enlace real de WhatsApp -->
+    <a href="#" class="btn-wa" aria-label="Contactar por WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.79.467 3.47 1.284 4.934L2 22l5.233-1.259A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.077-1.114l-.292-.173-3.026.729.759-2.948-.19-.303A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/>
       </svg>
-    </div>
-  </section>
+      Hablar por WhatsApp
+    </a>
 
+    <!-- Footer -->
+    <p class="note">© 2025 CRITERIA Consultoría Empresarial</p>
 
-  <!-- ══════════════════════════════════════
-       PARA QUIÉN
-  ══════════════════════════════════════ -->
-  <section id="para-quien" class="py-24 lg:py-32 bg-slate-50 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-
-      <div class="text-center mb-14">
-        <p class="eyebrow section-heading">Segmentación</p>
-        <h2 class="section-heading text-3xl sm:text-4xl font-black text-c-navy leading-tight">¿Es CRITERIA para ti?</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-
-        <!-- IDEAL -->
-        <div class="seg-card bg-white rounded-2xl p-8 lg:p-10 border border-emerald-100">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-800 text-emerald-700 tracking-wide uppercase text-sm">Ideal para ti si...</h3>
-          </div>
-          <ul class="seg-list space-y-3.5">
-            <li class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Eres gerente o dueño de una pyme en crecimiento
-            </li>
-            <li class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Necesitas ordenar procesos de talento y contratación
-            </li>
-            <li class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Enfrentas riesgo laboral o incertidumbre en decisiones
-            </li>
-            <li class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Quieres un aliado externo sin costos de equipo interno
-            </li>
-            <li class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Buscas soluciones prácticas e implementables
-            </li>
-            <li class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Valoras el acompañamiento en la implementación
-            </li>
-          </ul>
-        </div>
-
-        <!-- NO IDEAL -->
-        <div class="seg-card bg-white rounded-2xl p-8 lg:p-10 border border-gray-200">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-800 text-gray-500 tracking-wide uppercase text-sm">Podría no ser para ti si...</h3>
-          </div>
-          <ul class="seg-list space-y-3.5">
-            <li class="flex items-start gap-3 text-gray-500 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-gray-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-              Buscas capacitación masiva de empleados
-            </li>
-            <li class="flex items-start gap-3 text-gray-500 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-gray-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-              Necesitas hacer un despido "sin complicaciones"
-            </li>
-            <li class="flex items-start gap-3 text-gray-500 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-gray-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-              Esperas soluciones teóricas sin implementación
-            </li>
-            <li class="flex items-start gap-3 text-gray-500 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-gray-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-              Tu presupuesto es muy limitado
-            </li>
-            <li class="flex items-start gap-3 text-gray-500 text-sm leading-relaxed">
-              <svg class="w-4 h-4 text-gray-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-              Quieres asesoría puntual sin acompañamiento
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <p class="section-intro text-center text-gray-500 mt-10 text-sm font-medium">
-        Nuestro enfoque es aterrizado y práctico. Si buscas <strong class="text-c-navy">estructura, seguridad y claridad</strong>, hablemos.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       PROBLEMA — split dark layout
-  ══════════════════════════════════════ -->
-  <section id="problema" class="py-24 lg:py-32 relative overflow-hidden" style="background:#0d3a64">
-    <div class="hero-pattern absolute inset-0 opacity-[0.07]"></div>
-
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-        <!-- ── IZQUIERDA: declaración fuerte ── -->
-        <div>
-          <p class="eyebrow" style="color:#4097a3">El problema</p>
-
-          <h2 class="section-heading text-4xl sm:text-5xl font-black text-white leading-[1.05] mb-6">
-            Crecer sin<br>estructura<br>
-            <em class="not-italic" style="color:#4097a3">tiene un costo.</em>
-          </h2>
-
-          <p class="text-white/65 text-base leading-relaxed mb-8 max-w-sm">
-            Muchas pymes avanzan rápido y dejan atrás su base laboral. El resultado: decisiones improvisadas, riesgos silenciosos y exposición legal que nadie anticipó.
-          </p>
-
-          <blockquote class="border-l-2 pl-5 mb-10" style="border-color:#4097a3">
-            <p class="text-white/75 text-sm italic leading-relaxed">
-              "No es negligencia. Es que crecieron más rápido que su estructura interna. Y eso es exactamente lo que ayudamos a resolver."
-            </p>
-          </blockquote>
-
-          <a href="#servicios" class="btn-outline btn-magnetic inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-bold tracking-wide">
-            Ver cómo lo resolvemos
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-
-        <!-- ── DERECHA: síntomas ── -->
-        <div class="space-y-3">
-
-          <div class="problema-card flex items-start gap-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background:rgba(64,151,163,0.15)">
-              <svg style="width:16px;height:16px;color:#4097a3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-snug">Riesgo de demandas laborales</p>
-              <p class="text-white/65 text-xs mt-0.5">Procesos mal documentados o gestionados sin criterio.</p>
-            </div>
-          </div>
-
-          <div class="problema-card flex items-start gap-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background:rgba(64,151,163,0.15)">
-              <svg style="width:16px;height:16px;color:#4097a3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414A1 1 0 0119 9.414V19a2 2 0 01-2 2z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-snug">Procesos disciplinarios sin respaldo</p>
-              <p class="text-white/65 text-xs mt-0.5">Desvinculaciones complejas sin estructura legal.</p>
-            </div>
-          </div>
-
-          <div class="problema-card flex items-start gap-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background:rgba(64,151,163,0.15)">
-              <svg style="width:16px;height:16px;color:#4097a3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414A1 1 0 0120 8.414V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-snug">Contratos y políticas desactualizados</p>
-              <p class="text-white/65 text-xs mt-0.5">Documentación que genera exposición legal silenciosa.</p>
-            </div>
-          </div>
-
-          <div class="problema-card flex items-start gap-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background:rgba(64,151,163,0.15)">
-              <svg style="width:16px;height:16px;color:#4097a3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-snug">Decisiones sin criterio legal</p>
-              <p class="text-white/65 text-xs mt-0.5">Líderes improvisando en situaciones de alto riesgo.</p>
-            </div>
-          </div>
-
-          <div class="problema-card flex items-start gap-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background:rgba(64,151,163,0.15)">
-              <svg style="width:16px;height:16px;color:#4097a3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-snug">Alta rotación de talento</p>
-              <p class="text-white/65 text-xs mt-0.5">Procesos poco claros que erosionan el equipo.</p>
-            </div>
-          </div>
-
-          <div class="problema-card flex items-start gap-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background:rgba(64,151,163,0.15)">
-              <svg style="width:16px;height:16px;color:#4097a3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-snug">Exposición legal que no sabías que tenías</p>
-              <p class="text-white/65 text-xs mt-0.5">Riesgos acumulados que aparecen cuando ya es tarde.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       SERVICIOS
-  ══════════════════════════════════════ -->
-  <section id="servicios" class="py-24 lg:py-32 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="eyebrow">Lo que hacemos</p>
-        <h2 class="section-heading text-3xl sm:text-4xl font-black text-c-navy leading-tight mb-4">Nuestros servicios</h2>
-        <p class="section-intro text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-          Abordamos dos enfoques que suelen ir separados pero que en la práctica están completamente conectados: la estructura interna y el respaldo en lo laboral.
-        </p>
-      </div>
-
-      <div class="cards-grid grid md:grid-cols-3 gap-6 lg:gap-8">
-
-        <!-- Card 1 -->
-        <div class="service-card bg-white rounded-2xl p-8 flex flex-col">
-          <div class="card-icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background:rgba(8,47,86,0.07)">
-            <svg class="w-7 h-7" style="color:#082f56" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-black text-c-navy mb-3 leading-tight">Estructuración de Procesos de Talento</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-6">Diseñamos o ajustamos los procesos clave para que tu empresa gane orden y claridad desde el primer día.</p>
-          <ul class="space-y-2.5 mt-auto">
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Procesos de selección y contratación optimizados
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Definición de roles y responsabilidades
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Perfiles de cargo claros
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Modelos de evaluación de desempeño
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Herramientas prácticas para líderes
-            </li>
-          </ul>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="service-card bg-white rounded-2xl p-8 flex flex-col relative overflow-hidden">
-          <div class="absolute top-0 right-0 bg-c-teal text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-bl-lg">Principal</div>
-          <div class="card-icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background:rgba(64,151,163,0.1)">
-            <svg class="w-7 h-7" style="color:#135677" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-black text-c-navy mb-3 leading-tight">Acompañamiento en Relaciones Laborales</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-6">Acompañamos situaciones sensibles para que tomes decisiones con criterio y menor exposición al riesgo.</p>
-          <ul class="space-y-2.5 mt-auto">
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Apoyo en procesos disciplinarios
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Acompañamiento en desvinculaciones
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Análisis y asesoría en casos laborales
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Revisión de contratos y reglamentos
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Gestión preventiva y sindical
-            </li>
-          </ul>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="service-card bg-white rounded-2xl p-8 flex flex-col relative overflow-hidden">
-          <div class="absolute top-0 right-0 bg-c-navy text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-bl-lg">Principal</div>
-          <div class="card-icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background:rgba(8,47,86,0.07)">
-            <svg class="w-7 h-7" style="color:#082f56" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-black text-c-navy mb-3 leading-tight">Acompañamiento Mensual Estratégico</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-6">Un modelo de soporte continuo donde nos integramos como un aliado estratégico dentro de tu empresa.</p>
-          <ul class="space-y-2.5 mt-auto">
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Asesoría permanente en talento y laboral
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Gestión y resolución de casos prioritarios
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Acompañamiento a líderes en decisiones
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Seguimiento de procesos e implementación
-            </li>
-            <li class="flex items-start gap-2.5 text-sm text-gray-600">
-              <svg class="w-3.5 h-3.5 text-c-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Propuestas de mejora continua
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <p class="section-intro text-center text-gray-500 mt-12 text-sm max-w-xl mx-auto leading-relaxed">
-        Cada servicio está pensado para ser práctico e implementable desde el primer momento. <strong class="text-c-navy">No dejamos documentos; acompañamos la ejecución.</strong>
-      </p>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       CÓMO TRABAJAMOS
-  ══════════════════════════════════════ -->
-  <section id="como-trabajamos" class="py-24 lg:py-32 bg-white">
-    <div class="max-w-5xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="eyebrow">Metodología</p>
-        <h2 class="section-heading text-3xl sm:text-4xl font-black text-c-navy leading-tight mb-4">Así trabajamos con nuestros clientes</h2>
-        <p class="section-intro text-gray-500 text-sm max-w-lg mx-auto leading-relaxed">
-          Nuestro método es simple: entendemos tu contexto, diseñamos soluciones aterrizadas y acompañamos la implementación.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-        <div class="step-wrap text-center flex flex-col items-center">
-          <div class="step-number mb-5">1</div>
-          <h3 class="font-black text-c-navy text-base mb-2">Diagnóstico inicial</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-3">Nos reunimos 30–60 min para entender tu situación, desafíos y prioridades reales.</p>
-          <span class="text-[11px] font-700 text-c-teal tracking-wide uppercase">→ Claridad compartida</span>
-        </div>
-
-        <div class="step-wrap text-center flex flex-col items-center">
-          <div class="step-number mb-5">2</div>
-          <h3 class="font-black text-c-navy text-base mb-2">Propuesta y acuerdo</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-3">Presentamos propuesta clara con alcance, timeline y valor. Sin sorpresas.</p>
-          <span class="text-[11px] font-700 text-c-teal tracking-wide uppercase">→ Compromiso mutuo</span>
-        </div>
-
-        <div class="step-wrap text-center flex flex-col items-center">
-          <div class="step-number mb-5">3</div>
-          <h3 class="font-black text-c-navy text-base mb-2">Ejecución conjunta</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-3">Trabajamos en los procesos, tomamos decisiones juntos. La implementación es compartida.</p>
-          <span class="text-[11px] font-700 text-c-teal tracking-wide uppercase">→ Soluciones reales</span>
-        </div>
-
-        <div class="step-wrap text-center flex flex-col items-center">
-          <div class="step-number mb-5">4</div>
-          <h3 class="font-black text-c-navy text-base mb-2">Seguimiento e impacto</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-3">Medimos resultados, ajustamos y proponemos mejoras continuas.</p>
-          <span class="text-[11px] font-700 text-c-teal tracking-wide uppercase">→ Tranquilidad operativa</span>
-        </div>
-
-      </div>
-
-      <div class="mt-16 text-center p-8 rounded-2xl" style="background:rgba(8,47,86,0.04); border:1px solid rgba(8,47,86,0.08)">
-        <p class="text-c-navy font-600 text-base italic">
-          "En cada etapa, ustedes saben dónde están y qué está pasando.<br>
-          <strong>No desaparecemos; acompañamos todo el camino.</strong>"
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       QUIÉNES SOMOS
-  ══════════════════════════════════════ -->
-  <section id="quienes-somos" class="py-24 lg:py-32 relative overflow-hidden" style="background:#082f56">
-    <div class="hero-pattern absolute inset-0 opacity-5"></div>
-    <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg, transparent 0%, #4097a3 40%, #135677 60%, transparent 100%)"></div>
-
-    <div class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="section-heading text-3xl sm:text-4xl font-black text-white leading-tight">
-          Detrás de CRITERIA hay experiencia real
-        </h2>
-
-        <div class="mt-8 space-y-5 text-white/80 text-base sm:text-[1.05rem] leading-relaxed">
-          <p>
-            Somos un equipo de expertos que combina conocimiento legal, visión estratégica e innovación para responder de forma integral a las necesidades de nuestros clientes.
-          </p>
-          <p class="text-white/62">
-            Si hay algo a lo que nos enfrentamos todos los días es al cambio. Por eso enfrentamos los retos con agilidad, tecnología e innovación.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-14 lg:mt-16">
-        <article class="team-profile-card mx-auto overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(145deg,#0a2d52_0%,#0d3a64_60%,#0e4262_100%)] shadow-[0_24px_64px_rgba(0,0,0,0.4),0_0_0_1px_rgba(64,151,163,0.08)]">
-          <div class="p-8 sm:p-10 lg:p-12">
-            <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 items-start">
-              <div class="space-y-7">
-                <div class="flex items-start gap-4 sm:gap-5">
-                  <div class="team-monogram">DM</div>
-                  <div class="pt-1">
-                    <p class="team-role">Socia Directora</p>
-                    <h3 class="team-name">Daniela Mendoza</h3>
-                    <p class="team-credentials">Abogada | Magister en Recursos Humanos</p>
-                  </div>
-                </div>
-
-                <div class="team-divider"></div>
-
-                <div class="space-y-4">
-                  <p class="team-body">
-                    Con más de 5 años acompañando el crecimiento de empresas pequeñas y medianas, he visto que el orden es la base del crecimiento.
-                  </p>
-                  <p class="team-quote">
-                    "Mi enfoque es simple: orden genera claridad, claridad genera confianza, confianza genera crecimiento."
-                  </p>
-                </div>
-              </div>
-
-              <div class="team-specialties-panel">
-                <p class="team-specialties-label">Especialidades</p>
-                <ul class="team-specialties-list">
-                  <li><span class="team-specialty-index">01</span><span>Desarrollo Organizacional</span></li>
-                  <li><span class="team-specialty-index">02</span><span>Gestión de Talento</span></li>
-                  <li><span class="team-specialty-index">03</span><span>Evaluación de Desempeño</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="mt-14 max-w-3xl mx-auto text-center space-y-4">
-        <p class="text-base italic leading-relaxed font-medium" style="color:#6bbfc9">
-          Nuestro enfoque es íntegro: combinamos la solidez legal, la visión estratégica del negocio y la innovación en procesos.
-        </p>
-        <p class="text-white/45 text-xs tracking-wider uppercase font-semibold">
-          Porque sabemos que los desafíos de hoy requieren soluciones que evolucionan constantemente.
-        </p>
-      </div>
-
-      <div class="mt-10 flex justify-center">
-        <a href="#contacto" class="btn-primary btn-magnetic inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-bold tracking-wide text-white">
-          <span>Agendar una conversación</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       BENEFICIOS
-  ══════════════════════════════════════ -->
-  <section id="beneficios" class="py-24 lg:py-32 bg-slate-50">
-    <div class="max-w-5xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="eyebrow">Resultados</p>
-        <h2 class="section-heading text-3xl sm:text-4xl font-black text-c-navy leading-tight">Qué gana tu empresa cuando trabajas con CRITERIA</h2>
-      </div>
-
-      <div class="benefits-grid grid sm:grid-cols-2 gap-6">
-
-        <div class="benefit-card bg-white rounded-2xl p-8 flex gap-5">
-          <div class="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center" style="background:rgba(8,47,86,0.07)">
-            <svg class="w-6 h-6" style="color:#082f56" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-black text-c-navy mb-2">Reducción de riesgo laboral</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Decisiones documentadas, procesos claros, contratos actualizados. Menos exposición legal, más tranquilidad operativa.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card bg-white rounded-2xl p-8 flex gap-5">
-          <div class="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center" style="background:rgba(64,151,163,0.1)">
-            <svg class="w-6 h-6" style="color:#135677" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-black text-c-navy mb-2">Orden y claridad en procesos</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Procesos de talento que funcionan, responsabilidades definidas, líderes que saben qué hacer. Operación más fluida.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card bg-white rounded-2xl p-8 flex gap-5">
-          <div class="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center" style="background:rgba(8,47,86,0.07)">
-            <svg class="w-6 h-6" style="color:#082f56" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-black text-c-navy mb-2">Mejor retención y clima laboral</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Empleados que entienden dónde están, procesos justos, criterio en decisiones. Menos rotación, mejor clima.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card bg-white rounded-2xl p-8 flex gap-5">
-          <div class="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center" style="background:rgba(64,151,163,0.1)">
-            <svg class="w-6 h-6" style="color:#135677" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-black text-c-navy mb-2">Respaldo experto sin costos de equipo</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Acceso a dos profesionales con experiencia real, sin asumir salarios ni equipamiento de RR.HH. interno.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="section-intro text-center text-gray-500 mt-12 text-sm font-medium">
-        El resultado: tu empresa tiene los fundamentos para crecer de forma <strong class="text-c-navy">segura, clara y sostenible.</strong>
-      </p>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       FAQS
-  ══════════════════════════════════════ -->
-  <section id="faqs" class="py-24 lg:py-32 bg-white">
-    <div class="max-w-3xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="eyebrow">Resolvemos dudas</p>
-        <h2 class="section-heading text-3xl sm:text-4xl font-black text-c-navy leading-tight">Preguntas frecuentes</h2>
-      </div>
-
-      <div class="space-y-0">
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Cuánto cuesta un servicio de CRITERIA?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            El costo depende del alcance y la complejidad de tu situación. La mejor forma de saberlo es conversar: entendemos tu situación y te presentamos opciones con precios claros. Sin sorpresas.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Qué diferencia a CRITERIA de otros asesores laborales?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            Tres cosas: <strong>Enfoque dual</strong> — combinamos visión de RR.HH. y relaciones laborales; la mayoría ofrece una u otra. <strong>Práctico</strong> — no dejamos documentos, acompañamos la implementación para que las soluciones funcionen realmente. <strong>Real</strong> — no usamos templates genéricos, diseñamos soluciones aterrizadas a tu negocio específico.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Cuánto tiempo tarda ver resultados?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            Depende del servicio: en <strong>estructuración de procesos</strong>, tienes procesos nuevos diseñados e implementando en 2–3 meses. En <strong>acompañamiento laboral</strong>, la tranquilidad llega desde la primera decisión bien guiada. En el <strong>modelo mensual</strong>, ves mejora continua desde la primera reunión, con cambios acumulativos mes a mes.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Necesito un área formal de RR.HH. para trabajar con ustedes?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            No. De hecho, muchos de nuestros clientes no tienen área formal de RR.HH. Si eres gerente, dueño o líder administrativo y necesitas tomar decisiones laborales sin tener a alguien especializado internamente, eso es para lo que existimos. Podemos ser ese aliado experto que complementa tu equipo.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Cómo es el acompañamiento mensual? ¿Alguien viene a la empresa?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            El modelo es flexible, NO requiere presencia permanente. Típicamente incluye reuniones programadas (semanal o quincenal), consultas vía WhatsApp/email para dudas urgentes, seguimiento de procesos y disponibilidad para situaciones inesperadas. Nos adaptamos a tu ritmo y realidad. Puede ser remoto total o con visitas ocasionales.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Qué pasa si la solución no funciona o no estamos conformes?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            Nuestro enfoque es colaborativo desde el inicio. Si algo no funciona, lo ajustamos. Si por alguna razón no hay fit, lo hablamos directamente y te recomendamos alguien que pueda ayudarte mejor.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="font-700 text-c-navy text-sm pr-6">¿Cómo empezamos?</span>
-            <div class="faq-icon shrink-0">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </div>
-          </button>
-          <div class="faq-answer">
-            Super simple: agenda una llamada de 30 minutos sin compromiso → conversamos sobre tu situación → evaluamos el fit → si hay fit, te presentamos propuesta clara → si no hay fit, te recomendamos alguien mejor. No hay presión. Empezamos con claridad.
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       CTA FINAL
-  ══════════════════════════════════════ -->
-  <section id="contacto" class="cta-section py-24 lg:py-32">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-
-      <div class="cta-content">
-        <p class="eyebrow" style="color:#4097a3">Contáctanos</p>
-        <h2 class="section-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-          ¿Listo para ordenar<br>tu gestión laboral?
-        </h2>
-        <p class="text-white/70 text-base leading-relaxed mb-10 max-w-xl mx-auto">
-          Agendar una conversación de 30 minutos es el primer paso. Entendemos tu situación, vemos si hay fit y te presentamos opciones reales.
-        </p>
-
-        <a id="main-cta-btn" href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20con%20CRITERIA" target="_blank" rel="noopener"
-          class="btn-primary btn-magnetic inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-base font-black tracking-wide text-white shadow-2xl mb-4">
-          <span>Agendar reunión</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
-
-        <p class="text-white/60 text-xs tracking-wide mb-16">
-          Conversación de 30 minutos &nbsp;·&nbsp; Sin costo &nbsp;·&nbsp; Sin compromiso
-        </p>
-
-        <!-- Direct contact -->
-        <div class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto justify-center">
-          <a href="https://wa.me/573178260202" target="_blank" rel="noopener"
-            class="contact-item flex items-center gap-4 text-left flex-1" style="border:1px solid rgba(255,255,255,0.12)">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background:rgba(64,151,163,0.3)">
-              <svg class="w-5 h-5 text-c-teal" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.79.467 3.47 1.284 4.934L2 22l5.233-1.259A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.077-1.114l-.292-.173-3.026.729.759-2.948-.19-.303A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-white/60 text-[10px] font-600 uppercase tracking-wider">WhatsApp</p>
-              <p class="text-white text-sm font-700">+57 317 826 0202</p>
-            </div>
-          </a>
-
-          <a href="mailto:contacto@criteriaempresarial.com"
-            class="contact-item flex items-center gap-4 text-left flex-1" style="border:1px solid rgba(255,255,255,0.12)">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background:rgba(64,151,163,0.3)">
-              <svg class="w-5 h-5 text-c-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <div class="min-w-0">
-              <p class="text-white/60 text-[10px] font-600 uppercase tracking-wider">Email</p>
-              <p class="text-white text-sm font-700 break-all">contacto@criteriaempresarial.com</p>
-            </div>
-          </a>
-        </div>
-
-        <p class="text-white/60 text-xs mt-12 max-w-md mx-auto leading-relaxed">
-          Sabemos que elegir un aliado es una decisión. Por eso comenzamos con una conversación, no con una propuesta. Te escuchamos, vemos si podemos ayudarte y si hay fit, avanzamos juntas.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
-  <footer class="py-16 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="footer-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
-
-        <!-- Col 1: Marca -->
-        <div class="footer-col lg:col-span-1">
-          <a href="#" class="inline-flex items-center mb-4 shrink-0">
-            <img src="assets/logo/logo.svg" alt="Criteria Consultoría Empresarial" class="h-10 footer-logo">
-          </a>
-          <p class="text-white/55 text-xs leading-relaxed">
-            Gestión de talento y relaciones laborales para pymes que crecen.
-          </p>
-        </div>
-
-        <!-- Col 2: Servicios -->
-        <div class="footer-col">
-          <h4 class="text-white text-xs font-800 tracking-[0.18em] uppercase mb-5">Servicios</h4>
-          <ul class="space-y-3">
-            <li><a href="#servicios" class="footer-link">Estructuración de Procesos</a></li>
-            <li><a href="#servicios" class="footer-link">Acompañamiento en Relaciones Laborales</a></li>
-            <li><a href="#servicios" class="footer-link">Acompañamiento Mensual</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Empresa -->
-        <div class="footer-col">
-          <h4 class="text-white text-xs font-800 tracking-[0.18em] uppercase mb-5">Empresa</h4>
-          <ul class="space-y-3">
-            <li><a href="#quienes-somos" class="footer-link">Quiénes Somos</a></li>
-            <li><a href="#como-trabajamos" class="footer-link">Cómo Trabajamos</a></li>
-            <li><a href="#faqs" class="footer-link">Preguntas Frecuentes</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Contacto -->
-        <div class="footer-col">
-          <h4 class="text-white text-xs font-800 tracking-[0.18em] uppercase mb-5">Contacto</h4>
-          <ul class="space-y-3">
-            <li>
-              <a href="https://wa.me/573178260202" target="_blank" rel="noopener" class="footer-link flex items-center gap-2">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.975-1.302A9.945 9.945 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-                +57 317 826 0202
-              </a>
-            </li>
-            <li>
-              <a href="mailto:contacto@criteriaempresarial.com" class="footer-link flex items-center gap-2">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                contacto@criteriaempresarial.com
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Bottom bar -->
-      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-white/45 text-xs">© 2025 CRITERIA. Todos los derechos reservados.</p>
-        <div class="flex items-center gap-6">
-          <a href="#" class="footer-link text-xs">Política de Privacidad</a>
-          <a href="#" class="footer-link text-xs">Términos</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Custom JS -->
-  <script src="assets/js/main.js"></script>
-
+  </div>
 </body>
 </html>
-
