@@ -48,40 +48,11 @@
 
     /* ── Logo ── */
     .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 2.5rem;
-    }
-    .logo-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-    }
-    .logo-grid span {
-      border-radius: 2px;
-    }
-    .logo-text-wrap {
-      text-align: left;
-    }
-    .logo-name {
-      font-size: 1.1rem;
-      font-weight: 900;
-      letter-spacing: 0.2em;
-      color: var(--navy);
-      line-height: 1;
-    }
-    .logo-sub {
-      font-size: 7px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--teal);
-      line-height: 1;
-      margin-top: 3px;
+      display: block;
+      margin: 0 auto 2.5rem;
+      width: 260px;
+      max-width: 80vw;
+      height: auto;
     }
 
     /* ── Divider ── */
@@ -153,7 +124,7 @@
 
     /* ── Responsive ── */
     @media (max-width: 400px) {
-      .logo-name { font-size: 0.95rem; }
+      .logo { width: 200px; }
     }
   </style>
 </head>
@@ -162,18 +133,7 @@
   <div class="container">
 
     <!-- Logo -->
-    <div class="logo">
-      <div class="logo-grid">
-        <span style="background:#082f56"></span>
-        <span style="background:#30598c"></span>
-        <span style="background:#135677"></span>
-        <span style="background:#4097a3"></span>
-      </div>
-      <div class="logo-text-wrap">
-        <div class="logo-name">CRITERIA</div>
-        <div class="logo-sub">Consultoría Empresarial</div>
-      </div>
-    </div>
+    <img src="assets/logo/logo.svg" alt="CRITERIA Consultoría Empresarial" class="logo">
 
     <!-- Divider -->
     <div class="divider"></div>
