@@ -197,6 +197,92 @@ body { overflow-x: hidden; }
   }
 }
 
+@media (max-width: 767px) {
+  #hero {
+    padding-top: 5.75rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-grid {
+    gap: 2.25rem;
+    align-items: start;
+  }
+
+  .hero-copy {
+    padding-top: 0.25rem;
+  }
+
+  .hero-overline {
+    gap: 10px;
+    font-size: 0.64rem;
+    letter-spacing: 0.24em;
+    margin-bottom: 1.05rem;
+  }
+
+  .hero-overline::before,
+  .hero-overline::after {
+    width: 28px;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    font-size: clamp(1.68rem, 6.8vw, 1.92rem);
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+    margin-bottom: 0.95rem;
+  }
+
+  .hero-subtitle {
+    max-width: 36ch;
+    font-size: 1rem;
+    line-height: 1.58;
+    margin-bottom: 1.35rem;
+  }
+
+  #hero-cta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-cta-btn {
+    width: min(100%, 19rem);
+    justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.95rem;
+  }
+
+  #hero-microcopy {
+    text-align: center;
+    max-width: 28ch;
+    margin-inline: auto;
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  #hero-media {
+    margin-top: 0.25rem;
+  }
+
+  .hero-media-frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+  }
+
+  .hero-media-caption {
+    margin-top: 0.7rem;
+    padding-left: 2px;
+    max-width: 100%;
+    font-size: 0.77rem;
+    line-height: 1.45;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
 /* ── SCROLL INDICATOR ── */
 .scroll-indicator {
   animation: scrollBounce 2s ease-in-out infinite;
