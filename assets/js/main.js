@@ -69,10 +69,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close mobile menu on link click
   document.querySelectorAll('#mobile-menu a').forEach(link => {
     link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
+      const href = link.getAttribute('href') || '';
+      const isInternalAnchor = href.startsWith('#');
+
+      menuToggle.classList.remove('open');
+      if (!isInternalAnchor) {
+        gsap.to(mobileMenu, {
+          opacity: 0, y: -12, duration: 0.2,
+          onComplete: () => mobileMenu.classList.add('hidden')
+        });
+        return;
+      }
+
+      const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      menuToggle.classList.remove('open');
       gsap.to(mobileMenu, {
         opacity: 0, y: -12, duration: 0.2,
         onComplete: () => {
@@ -114,12 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
   heroTl
     .from('#hero-logo', { opacity: 0, y: -20, duration: 0.7, ease: 'power2.out' })
     .from('#hero-tag', { opacity: 0, x: -20, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-    .from('#hero-h1', { opacity: 0, y: 40, duration: 0.9, ease: 'power3.out' }, '-=0.2')
-    .from('#hero-sub', { opacity: 0, y: 30, duration: 0.7, ease: 'power2.out' }, '-=0.5')
-    .from('#hero-desc', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '-=0.4')
-    .from('#hero-cta', { opacity: 0, scale: 0.9, duration: 0.6, ease: 'back.out(1.4)' }, '-=0.3')
-    .from('#hero-microcopy', { opacity: 0, duration: 0.5 }, '-=0.2')
-    .from('#scroll-indicator', { opacity: 0, y: -15, duration: 0.5 }, '-=0.1');
+    .from('#hero-h1', { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' }, '-=0.2')
+    .from('#hero-sub', { opacity: 0, y: 18, duration: 0.62, ease: 'power2.out' }, '-=0.42')
+    .from('#hero-cta', { opacity: 0, scale: 0.94, duration: 0.5, ease: 'power2.out' }, '-=0.25')
+    .from('#hero-microcopy', { opacity: 0, y: 8, duration: 0.42, ease: 'power2.out' }, '-=0.18')
+    .from('#hero-media', { opacity: 0, x: 42, duration: 0.8, ease: 'power3.out' }, '-=0.55')
+    .from('#scroll-indicator', { opacity: 0, y: -15, duration: 0.5 }, '-=0.12');
 
   // ═══════════════════════════════════════════════
   // 6. GENERIC REVEAL UTILITY
@@ -292,4 +303,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
-

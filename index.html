@@ -61,19 +61,17 @@
 
         <!-- Logo -->
         <a href="#" class="flex items-center shrink-0" id="hero-logo">
-          <!-- PARA REEMPLAZAR: descomenta la línea de abajo y borra el bloque logo-placeholder -->
           <img src="assets/logo/logo.svg" alt="Criteria Consultoría Empresarial" class="h-10 sm:h-11 header-logo">
-
         </a>
 
         <!-- Desktop Nav -->
-        <div class="hidden lg:flex items-center gap-8">
+        <div class="hidden lg:flex items-center gap-7">
           <a href="#quienes-somos" class="nav-link text-[13px] font-600 tracking-wide">Quiénes Somos</a>
-          <a href="#servicios"     class="nav-link text-[13px] font-600 tracking-wide">Servicios</a>
+          <a href="#servicios" class="nav-link text-[13px] font-600 tracking-wide">Servicios</a>
           <a href="#como-trabajamos" class="nav-link text-[13px] font-600 tracking-wide">Cómo Trabajamos</a>
-          <a href="#faqs"          class="nav-link text-[13px] font-600 tracking-wide">FAQs</a>
-          <a href="#contacto" class="btn-primary btn-magnetic px-6 py-2.5 rounded-lg text-[13px] font-bold tracking-wide text-white">
-            <span>Hablemos</span>
+          <a href="#contacto" class="nav-link text-[13px] font-600 tracking-wide">Contacto</a>
+          <a href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20hablar%20con%20CRITERIA" target="_blank" rel="noopener" class="btn-primary btn-magnetic px-5 py-2.5 rounded-lg text-[13px] font-bold tracking-wide text-white whitespace-nowrap">
+            <span>Hablemos | 317 826 0202</span>
           </a>
         </div>
 
@@ -89,65 +87,67 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden">
       <div class="max-w-7xl mx-auto px-6 pb-8 pt-4 flex flex-col gap-1">
-        <a href="#quienes-somos"   class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Quiénes Somos</a>
-        <a href="#servicios"       class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Servicios</a>
+        <a href="#quienes-somos" class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Quiénes Somos</a>
+        <a href="#servicios" class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Servicios</a>
         <a href="#como-trabajamos" class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Cómo Trabajamos</a>
-        <a href="#faqs"            class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">FAQs</a>
-        <a href="#contacto" class="btn-primary mt-3 px-6 py-3 rounded-lg text-sm font-bold tracking-wide text-white text-center">
-          <span>Hablemos</span>
+        <a href="#contacto" class="mobile-nav-link py-3 text-sm font-semibold tracking-wide">Contacto</a>
+        <a href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20hablar%20con%20CRITERIA" target="_blank" rel="noopener" class="btn-primary mt-3 px-6 py-3 rounded-lg text-sm font-bold tracking-wide text-white text-center">
+          <span>Hablemos | 317 826 0202</span>
         </a>
       </div>
     </div>
   </header>
 
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
-  <section id="hero" class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20">
+  <!-- HERO -->
+  <section id="hero" class="min-h-screen relative overflow-hidden pt-24 lg:pt-28 pb-16 lg:pb-20 flex items-center">
     <div class="hero-bg absolute inset-0"></div>
     <div class="hero-pattern absolute inset-0"></div>
     <div class="hero-gradient-bottom absolute inset-0"></div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
-      <!-- Eyebrow -->
-      <div id="hero-tag" class="inline-flex items-center gap-3 mb-5 sm:mb-8">
-        <div class="h-px w-8 sm:w-12 bg-c-teal/60"></div>
-        <span class="text-c-teal text-[10px] sm:text-[11px] font-700 tracking-[0.3em] uppercase">Consultoría Empresarial</span>
-        <div class="h-px w-8 sm:w-12 bg-c-teal/60"></div>
+    <div class="hero-grid relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 grid gap-12 lg:gap-[4.75rem] xl:gap-20 lg:grid-cols-[1.1fr_0.9fr] items-center">
+      <div class="hero-copy text-left text-white lg:pt-2">
+        <div id="hero-tag" class="hero-overline mb-5">
+          <span>CONSULTORÍA EMPRESARIAL</span>
+        </div>
+
+        <h1 id="hero-h1" class="hero-title text-[1.86rem] sm:text-[2.22rem] lg:text-[2.62rem] font-extrabold leading-[1.1] mb-6">
+          Consultoría en RRHH y Relaciones Laborales para operar con más orden, menos riesgo y <span class="hero-title-accent">mejores decisiones.</span>
+        </h1>
+
+        <p id="hero-sub" class="hero-subtitle text-[1.05rem] sm:text-[1.2rem] text-white/92 leading-[1.64] max-w-[52ch] mb-10">
+          No somos una firma tradicional. Somos el aliado estratégico que se integra a tu operación con soluciones prácticas, aterrizadas a la realidad de tu negocio.
+        </p>
+
+        <div id="hero-cta" class="mb-4">
+          <a href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20con%20CRITERIA" target="_blank" rel="noopener" class="btn-primary hero-cta-btn btn-magnetic inline-flex items-center gap-2 px-10 py-[1rem] rounded-[0.9rem] text-[1.03rem] font-bold tracking-[0.01em] text-white">
+            <span>Agendar reunión</span>
+          </a>
+        </div>
+
+        <p id="hero-microcopy" class="text-xs sm:text-sm text-white/72 font-medium tracking-wide">
+          Conversación de 30 min · Sin costo · Sin compromiso
+        </p>
       </div>
 
-      <!-- H1 -->
-      <h1 id="hero-h1" class="text-[2rem] sm:text-5xl lg:text-[3.5rem] font-black leading-[1.1] mb-4 sm:mb-6">
-        Gestión de talento y relaciones laborales<br>
-        <span style="color:#4097a3">que ordena tu empresa</span>
-      </h1>
-
-      <!-- Subtitle -->
-      <p id="hero-sub" class="text-base sm:text-xl text-white/80 font-medium leading-relaxed mb-3 sm:mb-4 max-w-2xl mx-auto">
-        Estructuramos tus procesos de talento y acompañamos situaciones sensibles para que tomes decisiones con seguridad y claridad.
-      </p>
-
-      <p id="hero-desc" class="text-sm text-white/55 font-medium tracking-wide mb-7 sm:mb-10">
-        Pensado para pymes que crecen más rápido que su estructura interna.
-      </p>
-
-      <!-- CTA -->
-      <div id="hero-cta" class="flex flex-row flex-wrap items-center justify-center gap-3 mb-3">
-        <a href="#contacto" class="btn-primary btn-magnetic px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl text-sm sm:text-base font-bold tracking-wide text-white shadow-lg shadow-c-teal/30">
-          <span>Agendar reunión</span>
-        </a>
-        <a href="#servicios" class="btn-outline px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl text-sm sm:text-base font-bold tracking-wide">
-          Ver servicios
-        </a>
+      <div id="hero-media" class="hero-media w-full">
+        <div class="hero-media-frame">
+          <img
+            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80"
+            alt="Equipo profesional revisando documentos y reportes en oficina"
+            width="1200"
+            height="1500"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            class="hero-media-image"
+          >
+          <div class="hero-media-overlay" aria-hidden="true"></div>
+        </div>
+        <p class="hero-media-caption">Consultoría práctica para empresas en crecimiento</p>
       </div>
-
-      <p id="hero-microcopy" class="text-xs text-white/60 font-medium tracking-wide">
-        Sin compromiso · 30 minutos · Sin costo
-      </p>
     </div>
 
-    <!-- Scroll indicator — centrado con inset-x-0 para máxima fiabilidad -->
     <div id="scroll-indicator" class="absolute bottom-6 sm:bottom-8 inset-x-0 scroll-indicator flex flex-col items-center gap-2">
       <span class="text-white/50 text-[10px] tracking-[0.25em] uppercase font-semibold">Scroll</span>
       <svg class="w-5 h-5 text-c-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -156,10 +156,7 @@
     </div>
   </section>
 
-
-  <!-- ══════════════════════════════════════
-       PARA QUIÉN
-  ══════════════════════════════════════ -->
+  <!-- PARA QUIÉN -->
   <section id="para-quien" class="py-24 lg:py-32 bg-slate-50 overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 lg:px-8">
 
