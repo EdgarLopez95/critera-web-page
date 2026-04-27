@@ -1,4 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://raw.githubusercontent.com/greensock/gsap-skills/main/CLAUDE.md)",
+      "Bash(curl -s https://api.github.com/repos/greensock/gsap-skills/contents/)",
+      "Bash(curl -s https://raw.githubusercontent.com/greensock/gsap-skills/main/README.md)",
+      "Bash(mkdir -p \"C:/Users/NITRO/.claude/skills\")",
+      "Bash(cp -r \".agents/skills/\"* \"C:/Users/NITRO/.claude/skills/\")"
+    ]
+  },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
     "ui-ux-pro-max@claude-plugins-official": true,

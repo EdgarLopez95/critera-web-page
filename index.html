@@ -1,164 +1,854 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CRITERIA Consultoría Empresarial — Gestión de talento y relaciones laborales para pymes. Próximamente.">
-  <title>CRITERIA | Consultoría Empresarial</title>
+  <meta name="description" content="Estructuramos procesos de talento y acompañamos relaciones laborales. Acompañamiento experto para pymes que crecen. Consulta gratuita sin compromiso.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#082f56">
+  <meta name="author" content="CRITERIA">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://www.criteriaempresarial.com/">
+  <title>CRITERIA | RRHH y Relaciones Laborales para Pymes</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="CRITERIA">
+  <meta property="og:title" content="CRITERIA | RRHH y Relaciones Laborales para Pymes">
+  <meta property="og:description" content="Estructuramos procesos de talento y acompañamos relaciones laborales. Acompañamiento experto para pymes que crecen. Consulta gratuita sin compromiso.">
+  <meta property="og:url" content="https://www.criteriaempresarial.com/">
+  <meta property="og:image" content="https://www.criteriaempresarial.com/assets/logo/logo.svg">
+  <meta property="og:image:alt" content="Logo de CRITERIA Consultoría Empresarial">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CRITERIA | RRHH y Relaciones Laborales para Pymes">
+  <meta name="twitter:description" content="Estructuramos procesos de talento y acompañamos relaciones laborales. Acompañamiento experto para pymes que crecen. Consulta gratuita sin compromiso.">
+  <meta name="twitter:image" content="https://www.criteriaempresarial.com/assets/logo/logo.svg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'c-navy': '#082f56',
+            'c-blue': '#30598c',
+            'c-teal-dark': '#135677',
+            'c-teal': '#4097a3',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/logo/favicon.svg">
 
-    :root {
-      --navy:    #082f56;
-      --blue:    #30598c;
-      --teal-dk: #135677;
-      --teal:    #4097a3;
-      --bg:      #f8f9fb;
-      --text:    #1e2a35;
-      --muted:   #6b7a8d;
-    }
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
 
-    html, body {
-      height: 100%;
-      font-family: 'Montserrat', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-    }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem 1.5rem;
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://www.criteriaempresarial.com/#organization",
+      "name": "CRITERIA",
+      "url": "https://www.criteriaempresarial.com/",
+      "logo": "https://www.criteriaempresarial.com/assets/logo/logo.svg",
+      "image": "https://www.criteriaempresarial.com/assets/logo/logo.svg",
+      "description": "Gestión de talento y relaciones laborales para pymes que crecen.",
+      "email": "contacto@criteriaempresarial.com",
+      "telephone": "+573178260202",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Colombia"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+573178260202",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de RRHH y Relaciones Laborales",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Estructuración de Procesos de Recursos Humanos"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Acompañamiento en Relaciones Laborales"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Acompañamiento Mensual Estratégico"
+            }
+          }
+        ]
+      }
     }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 520px;
-      width: 100%;
-      text-align: center;
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta un servicio de CRITERIA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El costo depende del alcance y la complejidad de tu situación. La mejor forma de saberlo es conversar: entendemos tu situación y te presentamos opciones con precios claros. Sin sorpresas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia a CRITERIA de otros asesores laborales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tres cosas: Enfoque dual, combinamos visión de RR.HH. y relaciones laborales; la mayoría ofrece una u otra. Práctico, no dejamos documentos, acompañamos la implementación para que las soluciones funcionen realmente. Real, no usamos templates genéricos, diseñamos soluciones aterrizadas a tu negocio específico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tarda ver resultados?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del servicio: en estructuración de procesos, tienes procesos nuevos diseñados e implementando en 2-3 meses. En acompañamiento laboral, la tranquilidad llega desde la primera decisión bien guiada. En el modelo mensual, ves mejora continua desde la primera reunión, con cambios acumulativos mes a mes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito un área formal de RR.HH. para trabajar con ustedes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. De hecho, muchos de nuestros clientes no tienen área formal de RR.HH. Si eres gerente, dueño o líder administrativo y necesitas tomar decisiones laborales sin tener a alguien especializado internamente, eso es para lo que existimos. Podemos ser ese aliado experto que complementa tu equipo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo es el acompañamiento mensual? ¿Alguien viene a la empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El modelo es flexible, no requiere presencia permanente. Típicamente incluye reuniones programadas, consultas vía WhatsApp o email para dudas urgentes, seguimiento de procesos y disponibilidad para situaciones inesperadas. Nos adaptamos a tu ritmo y realidad. Puede ser remoto total o con visitas ocasionales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si la solución no funciona o no estamos conformes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro enfoque es colaborativo desde el inicio. Si algo no funciona, lo ajustamos. Si por alguna razón no hay fit, lo hablamos directamente y te recomendamos alguien que pueda ayudarte mejor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo empezamos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Súper simple: agenda una llamada de 30 minutos sin compromiso, conversamos sobre tu situación, evaluamos el fit y, si hay fit, te presentamos una propuesta clara. Si no hay fit, te recomendamos a alguien mejor. Empezamos con claridad."
+          }
+        }
+      ]
     }
-
-    /* ── Logo ── */
-    .logo {
-      display: block;
-      margin: 0 auto 2.5rem;
-      width: 260px;
-      max-width: 80vw;
-      height: auto;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--teal-dk));
-      border-radius: 2px;
-      margin: 0 auto 2rem;
-    }
-
-    /* ── Heading ── */
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.25rem;
-    }
-
-    /* ── Body text ── */
-    .message {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-weight: 400;
-      max-width: 400px;
-      margin: 0 auto 2.25rem;
-    }
-    .message strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* ── CTA Button ── */
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-dk));
-      color: #fff;
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 10px;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .btn-wa:hover {
-      opacity: 0.88;
-      transform: translateY(-1px);
-    }
-    .btn-wa svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-
-    /* ── Footer note ── */
-    .note {
-      margin-top: 3rem;
-      font-size: 0.75rem;
-      color: #aab4be;
-      letter-spacing: 0.02em;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 400px) {
-      .logo { width: 200px; }
-    }
-  </style>
+  </script>
 </head>
 
-<body>
-  <div class="container">
+<body class="font-sans antialiased text-gray-900 bg-white">
+  <div id="progress-bar" aria-hidden="true"></div>
 
-    <!-- Logo -->
-    <img src="assets/logo/logo.svg" alt="CRITERIA Consultoría Empresarial" class="logo">
+  <header id="header" class="fixed top-0 left-0 right-0 z-50">
+    <nav class="section-shell section-shell--wide">
+      <div class="site-nav-row">
+        <a href="#hero" class="site-logo-link" id="hero-logo">
+          <img src="assets/logo/logo.svg" alt="Criteria Consultoría Empresarial" class="header-logo">
+        </a>
 
-    <!-- Divider -->
-    <div class="divider"></div>
+        <div class="site-nav-menu hidden lg:flex">
+          <a href="#quienes-somos" class="nav-link">Quiénes Somos</a>
+          <a href="#servicios" class="nav-link">Servicios</a>
+          <a href="#como-trabajamos" class="nav-link">Cómo Trabajamos</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+          <a href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20hablar%20con%20CRITERIA" target="_blank" rel="noopener" class="btn btn--primary btn-magnetic nav-cta">
+            <span>Hablemos | 317 826 0202</span>
+          </a>
+        </div>
 
-    <!-- Heading -->
-    <h1>Estamos preparando<br>algo nuevo para ti</h1>
+        <button id="menu-toggle" class="site-menu-toggle lg:hidden" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
 
-    <!-- Message -->
-    <p class="message">
-      Estamos construyendo nuestra nueva experiencia digital.<br>
-      Muy pronto podrás conocer más sobre nuestros servicios en
-      <strong>gestión de talento y relaciones laborales</strong>.
-    </p>
+    <div id="mobile-menu" class="hidden lg:hidden">
+      <div class="section-shell section-shell--wide mobile-menu-shell">
+        <a href="#quienes-somos" class="mobile-nav-link">Quiénes Somos</a>
+        <a href="#servicios" class="mobile-nav-link">Servicios</a>
+        <a href="#como-trabajamos" class="mobile-nav-link">Cómo Trabajamos</a>
+        <a href="#contacto" class="mobile-nav-link">Contacto</a>
+        <a href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20hablar%20con%20CRITERIA" target="_blank" rel="noopener" class="btn btn--primary mobile-menu-cta">
+          <span>Hablemos | 317 826 0202</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <!-- CTA -->
-    <a href="https://wa.me/573178260202" target="_blank" rel="noopener" class="btn-wa" aria-label="Contactar por WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.79.467 3.47 1.284 4.934L2 22l5.233-1.259A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.077-1.114l-.292-.173-3.026.729.759-2.948-.19-.303A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/>
-      </svg>
-      Hablar por WhatsApp
-    </a>
+  <main>
+    <section id="hero" class="section-block section-block--hero ds-section ds-section--dark">
+      <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+      <div class="hero-pattern absolute inset-0" aria-hidden="true"></div>
+      <div class="hero-gradient-bottom absolute inset-0" aria-hidden="true"></div>
 
-    <!-- Footer -->
-    <p class="note">© 2026 CRITERIA Consultoría Empresarial</p>
+      <div class="hero-grid section-shell section-shell--wide">
+        <div class="hero-copy">
+          <p id="hero-tag" class="hero-overline section-kicker">
+            <span>Consultoría empresarial</span>
+          </p>
 
-  </div>
+          <h1 id="hero-h1" class="hero-title title-display">
+            Consultoría en RRHH y Relaciones Laborales para operar con más orden, menos riesgo y <span class="hero-title-accent">mejores decisiones.</span>
+          </h1>
+
+          <p id="hero-sub" class="hero-subtitle section-copy section-copy--inverse">
+            No somos una firma tradicional. Somos el aliado estratégico que se integra a tu operación con soluciones prácticas, aterrizadas a la realidad de tu negocio.
+          </p>
+
+          <div id="hero-cta" class="hero-actions">
+            <a href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20con%20CRITERIA" target="_blank" rel="noopener" class="btn btn--primary btn-magnetic hero-cta-btn">
+              <span>Agendar reunión</span>
+            </a>
+          </div>
+
+          <p id="hero-microcopy" class="microcopy microcopy--inverse">Conversación de 30 min</p>
+        </div>
+
+        <div id="hero-media" class="hero-media">
+          <div class="hero-media-frame">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80" alt="Equipo profesional revisando documentos y reportes en oficina" width="1200" height="1500" fetchpriority="high" loading="eager" decoding="async" class="hero-media-image">
+            <div class="hero-media-overlay" aria-hidden="true"></div>
+          </div>
+          <p class="hero-media-caption">Consultoría práctica para empresas en crecimiento</p>
+        </div>
+      </div>
+
+      <div id="scroll-indicator" class="scroll-indicator hidden md:flex" aria-hidden="true">
+        <span>Scroll</span>
+        <i class="ph ph-caret-down ph-icon ph-icon--20"></i>
+      </div>
+    </section>
+
+    <section id="para-quien" class="section-block section-block--soft overflow-hidden">
+      <div class="section-shell">
+        <div class="section-header section-header--center">
+          <p class="eyebrow section-kicker">Segmentación</p>
+          <h2 class="section-heading section-title">¿Es CRITERIA para tu empresa?</h2>
+        </div>
+
+        <div class="fit-card card-surface">
+          <div class="fit-card-label">
+            <span class="fit-card-label-dot" aria-hidden="true"></span>
+            <span>CRITERIA es para tu empresa si...</span>
+          </div>
+
+          <ul class="fit-list">
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Eres gerente, dueño o líder de una empresa pequeña o mediana, o con planes de expansión.</span></li>
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Necesitas ordenar procesos de Recursos Humanos y Relaciones Laborales.</span></li>
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Enfrentas riesgo laboral o incertidumbre en decisiones del equipo.</span></li>
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Quieres un aliado externo con capacidades de BPO, sin los costos de un equipo interno.</span></li>
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Buscas soluciones prácticas y alineadas a la realidad de tu negocio.</span></li>
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Valoras que te acompañen en la implementación, no solo en el diagnóstico.</span></li>
+            <li class="fit-item"><span class="fit-check" aria-hidden="true"><i class="ph ph-check ph-icon ph-icon--20"></i></span><span>Quieres el respaldo de un equipo con experiencia real en empresas y firmas.</span></li>
+          </ul>
+        </div>
+
+        <p class="fit-closer section-copy section-copy--center">
+          Nuestro enfoque es aterrizado y práctico. Si buscas <strong class="fit-emphasis">estructura</strong>, <strong class="fit-emphasis">seguridad</strong> y <strong class="fit-emphasis">claridad</strong> en la gestión de tu talento y tus relaciones laborales, <strong class="fit-emphasis">CRITERIA es para tu empresa</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="problema" class="section-block ds-section ds-section--dark overflow-hidden">
+      <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+      <div class="hero-pattern absolute inset-0" aria-hidden="true"></div>
+      <div class="hero-gradient-bottom absolute inset-0" aria-hidden="true"></div>
+
+      <div class="section-shell section-shell--wide problem-layout">
+        <div class="problem-copy">
+          <div class="section-header section-header--split">
+            <p class="eyebrow section-kicker problem-eyebrow">El problema</p>
+            <h2 class="section-heading section-title problem-title">
+              El desorden laboral cuesta más de lo que <span class="problem-title-accent">crees</span>
+            </h2>
+            <p class="problem-intro section-copy section-copy--inverse">
+              Muchas empresas pequeñas y medianas crecen sin una base sólida en la gestión de Recursos Humanos y Relaciones Laborales. El resultado: riesgos, sobrecostos, reprocesos y decisiones difíciles que afectan directamente al negocio.
+            </p>
+          </div>
+
+          <div class="problem-remate">
+            <div class="problem-close">
+              <p class="problem-close-text">
+                No es falta de gestión; es desconocimiento y prioridades del negocio. Ahí es donde entramos nosotros y te damos claridad.
+              </p>
+            </div>
+
+            <p class="problem-microcopy">¿Estás cumpliendo o asumiendo riesgos sin saberlo?</p>
+
+            <a href="#servicios" class="btn btn--secondary btn-magnetic problem-cta">
+              <span>Ver cómo lo resolvemos</span>
+              <i class="ph ph-arrow-right ph-icon ph-icon--16"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="problem-panel">
+          <div class="problem-panel-label"><span class="problem-panel-label-dot" aria-hidden="true"></span><span>Señales de desorden que vemos a diario</span></div>
+          <div class="problem-signals">
+            <article class="problem-signal problem-signal--structure">
+              <span class="problem-signal-icon" aria-hidden="true">
+                <i class="ph ph-users-three ph-icon ph-icon--24"></i>
+              </span>
+              <div class="problem-signal-copy">
+                <h3 class="card-title">Falta de estructura en RRHH y Relaciones Laborales</h3>
+                <p class="card-copy">Procesos difusos que hacen más lenta y más costosa la gestión de personas.</p>
+              </div>
+            </article>
+
+            <article class="problem-signal problem-signal--document">
+              <span class="problem-signal-icon" aria-hidden="true">
+                <i class="ph ph-file-magnifying-glass ph-icon ph-icon--24"></i>
+              </span>
+              <div class="problem-signal-copy">
+                <h3 class="card-title">Ausencia de políticas, contratos y procedimientos</h3>
+                <p class="card-copy">Documentación insuficiente que complica decisiones y frena la operación.</p>
+              </div>
+            </article>
+
+            <article class="problem-signal problem-signal--conflict">
+              <span class="problem-signal-icon" aria-hidden="true">
+                <i class="ph ph-scales ph-icon ph-icon--24"></i>
+              </span>
+              <div class="problem-signal-copy">
+                <h3 class="card-title">Conflictos laborales sin respaldo experto</h3>
+                <p class="card-copy">Derechos de petición, tutelas, procesos judiciales y negociaciones sin guía clara.</p>
+              </div>
+            </article>
+
+            <article class="problem-signal problem-signal--exit">
+              <span class="problem-signal-icon" aria-hidden="true">
+                <i class="ph ph-gavel ph-icon ph-icon--24"></i>
+              </span>
+              <div class="problem-signal-copy">
+                <h3 class="card-title">Procesos disciplinarios o desvinculaciones complejas</h3>
+                <p class="card-copy">Casos sensibles sin acompañamiento, con más fricción y más riesgo operativo.</p>
+              </div>
+            </article>
+
+            <article class="problem-signal problem-signal--decision">
+              <span class="problem-signal-icon" aria-hidden="true">
+                <i class="ph ph-intersect ph-icon ph-icon--24"></i>
+              </span>
+              <div class="problem-signal-copy">
+                <h3 class="card-title">Decisiones difíciles sin ver negocio y riesgo al mismo tiempo</h3>
+                <p class="card-copy">Falta de criterio integrado para decidir con mayor seguridad y contexto.</p>
+              </div>
+            </article>
+
+            <article class="problem-signal problem-signal--risk">
+              <span class="problem-signal-icon" aria-hidden="true">
+                <i class="ph ph-shield-warning ph-icon ph-icon--24"></i>
+              </span>
+              <div class="problem-signal-copy">
+                <h3 class="card-title">Riesgos legales que hoy no sabes que estás asumiendo</h3>
+                <p class="card-copy">Exposiciones invisibles que se acumulan hasta que ya es tarde para corregirlas.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section-block section-block--soft">
+      <div class="section-shell">
+        <div class="section-header section-header--center">
+          <p class="eyebrow section-kicker">Lo que hacemos</p>
+          <h2 class="section-heading section-title">Servicios de RRHH y Relaciones Laborales para tu empresa</h2>
+          <p class="section-intro section-copy section-copy--center">Abordamos dos enfoques que suelen ir separados pero que en la práctica están completamente conectados: Recursos Humanos y Relaciones Laborales.</p>
+        </div>
+
+        <div class="cards-servicios cards-grid grid gap-6 lg:gap-8 md:grid-cols-3">
+          <article class="service-card card-surface">
+            <div class="icon-chip icon-chip--navy" aria-hidden="true">
+              <i class="ph ph-tree-structure ph-icon ph-icon--24"></i>
+            </div>
+            <h3 class="card-title">Estructuración de Procesos de Recursos Humanos</h3>
+            <p class="card-copy">Convertimos tus procesos de Recursos Humanos en una palanca de crecimiento, asegurando estructuras claras, eficiencia operativa y una gestión del talento alineada al negocio.</p>
+            <ul class="service-list card-checklist">
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Procesos de selección y contratación optimizados</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Definición de roles y responsabilidades</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Estructuración de perfiles de cargo claros</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Implementación de modelos de evaluación de desempeño</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Herramientas prácticas para líderes</span></li>
+            </ul>
+          </article>
+
+          <article class="service-card card-surface service-card--featured">
+            <div class="service-badge">Principal</div>
+            <div class="icon-chip icon-chip--teal" aria-hidden="true">
+              <i class="ph ph-shield-check ph-icon ph-icon--24"></i>
+            </div>
+            <h3 class="card-title">Acompañamiento en Relaciones Laborales</h3>
+            <p class="card-copy">Te ayudamos a anticipar y gestionar los riesgos laborales para que tomes decisiones con seguridad y respaldo en cada situación.</p>
+            <ul class="service-list card-checklist">
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Acompañamiento en procesos disciplinarios</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Acompañamiento en desvinculaciones y/o retiros sensibles</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Análisis, asesoría y representación legal en derecho laboral individual y/o colectivo</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Revisión de contratos, políticas y reglamentos</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Gestión preventiva y gestión sindical</span></li>
+            </ul>
+          </article>
+
+          <article class="service-card card-surface">
+            <div class="icon-chip icon-chip--navy" aria-hidden="true">
+              <i class="ph ph-handshake ph-icon ph-icon--24"></i>
+            </div>
+            <h3 class="card-title">Acompañamiento Mensual Estratégico</h3>
+            <p class="card-copy">Un modelo de soporte continuo donde nos integramos como aliado estratégico dentro de tu empresa.</p>
+            <ul class="service-list card-checklist">
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Asesoría permanente en temas de Recursos Humanos y Relaciones Laborales</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Gestión y resolución de casos prioritarios</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Acompañamiento a líderes en decisiones</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Seguimiento de procesos e implementación</span></li>
+              <li><i class="ph ph-check ph-icon ph-icon--20" aria-hidden="true"></i><span>Propuestas de mejora continua</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="section-intro section-copy section-copy--center services-closer">
+          Nuestro enfoque es práctico por diseño: lo que construimos en tu empresa está hecho para implementarse, sostenerse en el tiempo y adaptarse a tus necesidades.
+        </p>
+      </div>
+    </section>
+
+    <section id="como-trabajamos" class="section-block section-block--light">
+      <div class="section-shell">
+        <div class="section-header section-header--center">
+          <p class="eyebrow section-kicker">Metodología</p>
+          <h2 class="section-heading section-title">Cómo trabajamos: un proceso claro de principio a fin</h2>
+          <p class="section-intro section-copy section-copy--center">Nuestro método es simple: entendemos tu contexto, diseñamos soluciones aterrizadas y acompañamos la implementación.</p>
+        </div>
+
+        <div class="process-grid grid-pasos flex flex-col gap-6 lg:gap-8">
+          <svg class="grid-pasos-flow-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path class="grid-pasos-flow-path" d="M 48 14 L 52 14 M 50 14 L 50 59 M 48 59 L 52 59" />
+          </svg>
+          <div class="process-pair">
+            <article class="process-step card-paso">
+              <div class="step-number numero-paso">1</div>
+              <div class="process-step-shell">
+                <div class="process-step-content">
+                  <h3 class="card-title">Diagnóstico y conversación inicial</h3>
+                  <p class="step-copy">Nos reunimos contigo para entender tu situación, desafíos y prioridades reales. Escuchamos, hacemos preguntas y tomamos notas.</p>
+                </div>
+                <div class="step-result bloque-resultado">
+                  <span class="step-result-label label-resultado">Resultado</span>
+                  <p class="step-result-copy texto-resultado">Claridad sobre dónde están y hacia dónde van.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="process-step card-paso">
+              <div class="step-number numero-paso">2</div>
+              <div class="process-step-shell">
+                <div class="process-step-content">
+                  <h3 class="card-title">Propuesta y acuerdo</h3>
+                  <p class="step-copy">Presentamos una propuesta clara, con alcance, timeline y valor. No hay sorpresas. Si hay ajustes, los hablamos.</p>
+                </div>
+                <div class="step-result bloque-resultado">
+                  <span class="step-result-label label-resultado">Resultado</span>
+                  <p class="step-result-copy texto-resultado">Acuerdo en los términos, compromiso mutuo.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="process-pair">
+            <article class="process-step card-paso">
+              <div class="step-number numero-paso">3</div>
+              <div class="process-step-shell">
+                <div class="process-step-content">
+                  <h3 class="card-title">Ejecución y acompañamiento</h3>
+                  <p class="step-copy">Trabajamos en los procesos, tomamos decisiones con ustedes y resolvemos dudas en el camino. La implementación es conjunta.</p>
+                </div>
+                <div class="step-result bloque-resultado">
+                  <span class="step-result-label label-resultado">Resultado</span>
+                  <p class="step-result-copy texto-resultado">Soluciones reales, implementadas y ajustadas a tu medida.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="process-step card-paso">
+              <div class="step-number numero-paso">4</div>
+              <div class="process-step-shell">
+                <div class="process-step-content">
+                  <h3 class="card-title">Seguimiento e impacto</h3>
+                  <p class="step-copy">Hacemos seguimiento, medimos resultados, ajustamos si es necesario y proponemos mejoras continuas.</p>
+                </div>
+                <div class="step-result bloque-resultado">
+                  <span class="step-result-label label-resultado">Resultado</span>
+                  <p class="step-result-copy texto-resultado">Claridad del impacto, tranquilidad operativa y acompañamiento en nuevas decisiones.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="process-closing">
+          <p class="process-closing-text">Te damos claridad en cada etapa del proceso, con seguimiento constante y acompañamiento de principio a fin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quienes-somos" class="section-block about-credibility-section overflow-hidden">
+      <div class="criteria-dark-bg absolute inset-0" aria-hidden="true"></div>
+      <div class="criteria-dark-pattern absolute inset-0" aria-hidden="true"></div>
+      <div class="criteria-dark-fade absolute inset-0" aria-hidden="true"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent_0%,rgba(64,151,163,0.35)_40%,rgba(19,86,119,0.3)_60%,transparent_100%)]" aria-hidden="true"></div>
+
+      <div class="section-shell relative z-10">
+        <article class="about-credibility-panel">
+          <div class="about-credibility-layout">
+            <div class="about-credibility-main section-header section-header--split">
+              <p class="eyebrow section-kicker about-credibility-eyebrow">Quiénes Somos</p>
+              <h2 class="section-heading section-title about-credibility-title">Detrás de CRITERIA hay experiencia real</h2>
+              <p class="about-credibility-intro section-copy section-copy--inverse">
+                CRITERIA nace de la unión de dos enfoques que suelen trabajar por separado pero que en la práctica están conectados: Recursos Humanos y Relaciones Laborales. Nuestra fortaleza está en la integralidad.
+              </p>
+              <div class="about-credibility-statement">
+                <p class="about-credibility-close">Entendemos el negocio de forma transversal. Diseñamos soluciones que no solo cumplen, sino que funcionan en la práctica.</p>
+                <p class="about-credibility-signature">Daniela Mendoza — Socia directora</p>
+              </div>
+            </div>
+
+            <div class="about-credibility-principles grid-cards-quienes">
+              <article class="about-principle-card card-quienes">
+                <span class="about-principle-index">01</span>
+                <p>Integramos conocimiento legal, visión estratégica y ejecución práctica para resolver los retos reales de las empresas.</p>
+              </article>
+
+              <article class="about-principle-card card-quienes">
+                <span class="about-principle-index">02</span>
+                <p>Más que un proveedor, somos un aliado estratégico que te da claridad, respaldo y seguridad en cada decisión.</p>
+              </article>
+
+              <article class="about-principle-card card-quienes">
+                <span class="about-principle-index">03</span>
+                <p>Contamos con más de 8 años de experiencia acompañando organizaciones en la toma de decisiones críticas, con soluciones adaptadas a cada contexto.</p>
+              </article>
+
+              <article class="about-principle-card card-quienes">
+                <span class="about-principle-index">04</span>
+                <p>Nos impulsa el compromiso de construir soluciones sostenibles que generen impacto real en el negocio.</p>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="beneficios" class="section-block section-block--soft">
+      <div class="section-shell section-shell--compact">
+        <div class="section-header section-header--center">
+          <p class="eyebrow section-kicker">Resultados</p>
+          <h2 class="section-heading section-title">Qué gana tu empresa cuando trabajas con CRITERIA</h2>
+        </div>
+
+        <div class="benefits-grid grid gap-6 sm:grid-cols-2">
+          <article class="benefit-card card-surface">
+            <div class="icon-chip icon-chip--navy" aria-hidden="true">
+              <i class="ph ph-shield-check ph-icon ph-icon--24"></i>
+            </div>
+            <div>
+              <h3 class="card-title">Reducción de riesgo laboral</h3>
+              <p class="card-copy">Decisiones documentadas, procesos claros, contratos actualizados. Menos exposición legal, más tranquilidad operativa.</p>
+            </div>
+          </article>
+
+          <article class="benefit-card card-surface">
+            <div class="icon-chip icon-chip--teal" aria-hidden="true">
+              <i class="ph ph-list-checks ph-icon ph-icon--24"></i>
+            </div>
+            <div>
+              <h3 class="card-title">Orden y claridad en procesos</h3>
+              <p class="card-copy">Procesos de talento que funcionan, responsabilidades definidas, líderes que saben qué hacer. Operación más fluida.</p>
+            </div>
+          </article>
+
+          <article class="benefit-card card-surface">
+            <div class="icon-chip icon-chip--navy" aria-hidden="true">
+              <i class="ph ph-smiley ph-icon ph-icon--24"></i>
+            </div>
+            <div>
+              <h3 class="card-title">Mejor retención y clima laboral</h3>
+              <p class="card-copy">Empleados que entienden dónde están, procesos justos, criterio en decisiones. Menos rotación, mejor clima.</p>
+            </div>
+          </article>
+
+          <article class="benefit-card card-surface">
+            <div class="icon-chip icon-chip--teal" aria-hidden="true">
+              <i class="ph ph-users-three ph-icon ph-icon--24"></i>
+            </div>
+            <div>
+              <h3 class="card-title">Respaldo experto sin costos de equipo</h3>
+              <p class="card-copy">Acceso a dos profesionales con experiencia real, sin asumir salarios ni equipamiento de RR.HH. interno.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="section-copy section-copy--center benefits-closer">El resultado: tu empresa tiene los fundamentos para crecer de forma <strong class="fit-emphasis">segura, clara y sostenible.</strong></p>
+      </div>
+    </section>
+
+    <section id="faqs" class="section-block section-block--light">
+      <div class="section-shell section-shell--narrow">
+        <div class="section-header section-header--center">
+          <p class="eyebrow section-kicker">Resolvemos dudas</p>
+          <h2 class="section-heading section-title">Preguntas frecuentes</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Cuánto cuesta un servicio de CRITERIA?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-p">El costo depende del alcance y la complejidad de tu situación. La mejor forma de saberlo es conversar: entendemos tu situación y te presentamos opciones con precios claros. Sin sorpresas.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Qué diferencia a CRITERIA de otros asesores laborales?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-lead">Tres cosas:</p>
+              <ul class="faq-answer-points">
+                <li><strong>Enfoque dual</strong> — combinamos visión de RR.HH. y relaciones laborales; la mayoría ofrece una u otra.</li>
+                <li><strong>Práctico</strong> — no dejamos documentos, acompañamos la implementación para que las soluciones funcionen realmente.</li>
+                <li><strong>Real</strong> — no usamos templates genéricos, diseñamos soluciones aterrizadas a tu negocio específico.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Cuánto tiempo tarda ver resultados?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-p">Depende del servicio: en <strong>estructuración de procesos</strong>, tienes procesos nuevos diseñados e implementando en 2–3 meses.</p>
+              <p class="faq-answer-p">En <strong>acompañamiento laboral</strong>, la tranquilidad llega desde la primera decisión bien guiada.</p>
+              <p class="faq-answer-p">En el <strong>modelo mensual</strong>, ves mejora continua desde la primera reunión, con cambios acumulativos mes a mes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Necesito un área formal de RR.HH. para trabajar con ustedes?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-p">No. De hecho, muchos de nuestros clientes no tienen área formal de RR.HH.</p>
+              <p class="faq-answer-p">Si eres gerente, dueño o líder administrativo y necesitas tomar decisiones laborales sin tener a alguien especializado internamente, eso es para lo que existimos. Podemos ser ese aliado experto que complementa tu equipo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Cómo es el acompañamiento mensual? ¿Alguien viene a la empresa?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-p">El modelo es flexible, no requiere presencia permanente.</p>
+              <p class="faq-answer-p">Típicamente incluye reuniones programadas, consultas vía WhatsApp o email para dudas urgentes, seguimiento de procesos y disponibilidad para situaciones inesperadas.</p>
+              <p class="faq-answer-p">Nos adaptamos a tu ritmo y realidad. Puede ser remoto total o con visitas ocasionales.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Qué pasa si la solución no funciona o no estamos conformes?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-p">Nuestro enfoque es colaborativo desde el inicio. Si algo no funciona, lo ajustamos.</p>
+              <p class="faq-answer-p">Si por alguna razón no hay fit, lo hablamos directamente y te recomendamos alguien que pueda ayudarte mejor.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span class="faq-question-text">¿Cómo empezamos?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <i class="ph ph-plus ph-icon ph-icon--16"></i>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-answer-p">Súper simple: agenda una llamada de 30 minutos sin compromiso, conversamos sobre tu situación, evaluamos el fit y, si hay fit, te presentamos una propuesta clara.</p>
+              <p class="faq-answer-p">Si no hay fit, te recomendamos a alguien mejor. Empezamos con claridad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section-block cta-section cta-section--compact">
+      <div class="criteria-dark-bg absolute inset-0" aria-hidden="true"></div>
+      <div class="criteria-dark-pattern absolute inset-0" aria-hidden="true"></div>
+      <div class="criteria-dark-fade absolute inset-0" aria-hidden="true"></div>
+
+      <div class="section-shell section-shell--wide relative z-10">
+        <div class="cta-shell">
+          <div class="cta-main">
+            <div class="section-header section-header--center">
+              <p class="eyebrow section-kicker cta-eyebrow">Contáctanos</p>
+              <h2 class="section-heading section-title cta-title">Da el primer paso: una conversación de 30 minutos</h2>
+              <p class="cta-lead cta-lead--stack section-copy section-copy--inverse section-copy--center">
+                <span class="cta-lead-body">Agenda una conversación sin compromiso. Entendemos tu situación, vemos si hay fit y te presentamos opciones reales.</span>
+                <span class="cta-lead-pill">Sin costo, sin presión.</span>
+              </p>
+            </div>
+
+            <a id="main-cta-btn" href="https://wa.me/573178260202?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20con%20CRITERIA" target="_blank" rel="noopener" class="btn btn--primary btn-magnetic cta-primary">
+              <span>Agendar reunión</span>
+              <i class="ph ph-arrow-right ph-icon ph-icon--16"></i>
+            </a>
+
+            <p class="cta-meta microcopy microcopy--inverse">Conversación de 30 minutos | Sin costo | Sin compromiso</p>
+          </div>
+
+          <div class="cta-lower">
+            <div class="cta-contact-grid">
+              <a href="https://wa.me/573178260202" target="_blank" rel="noopener" class="contact-item cta-contact-card">
+                <div class="cta-contact-icon" aria-hidden="true">
+                  <i class="ph ph-whatsapp-logo ph-icon ph-icon--24"></i>
+                </div>
+                <div class="cta-contact-copy">
+                  <p class="cta-contact-label">WhatsApp</p>
+                  <p class="cta-contact-value">317 826 0202</p>
+                </div>
+              </a>
+
+              <a href="mailto:contacto@criteriaempresarial.com" class="contact-item cta-contact-card">
+                <div class="cta-contact-icon" aria-hidden="true">
+                  <i class="ph ph-envelope-simple ph-icon ph-icon--24"></i>
+                </div>
+                <div class="cta-contact-copy">
+                  <p class="cta-contact-label">Email</p>
+                  <p class="cta-contact-value cta-contact-value--email">contacto@<wbr>criteriaempresarial<wbr>.com</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="cta-close-panel">
+              <p class="cta-close-copy">Sabemos que elegir un aliado es una decisión importante. Por eso comenzamos con una conversación, no con una propuesta. Te escuchamos, vemos si podemos ayudarte y si hay fit, avanzamos juntos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-shell">
+      <div class="footer-grid grid gap-10 lg:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="footer-col">
+          <a href="#hero" class="footer-brand">
+            <img src="assets/logo/logo.svg" alt="Criteria Consultoría Empresarial" class="footer-logo">
+          </a>
+          <p class="footer-copy">Gestión de talento y relaciones laborales para pymes que crecen.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Servicios</h4>
+          <ul class="footer-list">
+            <li><a href="#servicios" class="footer-link">Estructuración de Procesos</a></li>
+            <li><a href="#servicios" class="footer-link">Acompañamiento en Relaciones Laborales</a></li>
+            <li><a href="#servicios" class="footer-link">Acompañamiento Mensual</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Empresa</h4>
+          <ul class="footer-list">
+            <li><a href="#quienes-somos" class="footer-link">Quiénes Somos</a></li>
+            <li><a href="#como-trabajamos" class="footer-link">Cómo Trabajamos</a></li>
+            <li><a href="#faqs" class="footer-link">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Contacto</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="https://wa.me/573178260202" target="_blank" rel="noopener" class="footer-link footer-link--inline">
+                <i class="ph ph-whatsapp-logo ph-icon ph-icon--16" aria-hidden="true"></i>
+                <span>+57 317 826 0202</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contacto@criteriaempresarial.com" class="footer-link footer-link--inline">
+                <i class="ph ph-envelope-simple ph-icon ph-icon--16" aria-hidden="true"></i>
+                <span>contacto@criteriaempresarial.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CRITERIA. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
